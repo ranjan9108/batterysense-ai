@@ -1,0 +1,65 @@
+{
+  "soc": {
+    "target_column": "SOC_Mean_pct",
+    "target_name": "State of Charge (SOC)",
+    "unit": "%",
+    "description": "Estimated mean State of Charge percentage",
+    "model_type": "CatBoostRegressor",
+    "hyperparameters": {
+      "iterations": 250,
+      "depth": 4,
+      "learning_rate": 0.04,
+      "loss_function": "RMSE",
+      "random_seed": 42
+    },
+    "train_samples": 64,
+    "test_samples": 16,
+    "metrics": {
+      "mae": 0.4826,
+      "rmse": 0.5506,
+      "r2": 0.9996
+    }
+  },
+  "soh": {
+    "target_column": "SOH_Estimated_pct",
+    "target_name": "State of Health (SOH)",
+    "unit": "%",
+    "description": "Estimated State of Health percentage relative to nominal capacity",
+    "model_type": "CatBoostRegressor",
+    "hyperparameters": {
+      "iterations": 250,
+      "depth": 4,
+      "learning_rate": 0.04,
+      "loss_function": "RMSE",
+      "random_seed": 42
+    },
+    "train_samples": 64,
+    "test_samples": 16,
+    "metrics": {
+      "mae": 0.1068,
+      "rmse": 0.1355,
+      "r2": 0.9967
+    }
+  },
+  "rul": {
+    "target_column": "RUL_Estimated_Cycles",
+    "target_name": "Remaining Useful Life (RUL)",
+    "unit": "cycles",
+    "description": "Estimated remaining useful cycles before reaching 80% EOL threshold",
+    "model_type": "CatBoostRegressor",
+    "hyperparameters": {
+      "iterations": 250,
+      "depth": 4,
+      "learning_rate": 0.04,
+      "loss_function": "RMSE",
+      "random_seed": 42
+    },
+    "train_samples": 64,
+    "test_samples": 16,
+    "metrics": {
+      "mae": 2.1948,
+      "rmse": 2.8242,
+      "r2": 0.9964
+    }
+  }
+}

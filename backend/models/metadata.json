@@ -1,0 +1,144 @@
+{
+  "dataset_name": "Battery_dataset.xlsx",
+  "sheet_name": "data",
+  "total_records": 80,
+  "ml_framework": "CatBoost",
+  "dataset_label_disclosure": {
+    "status": "Filled with proxy-based assumptions; not measured/validated labels",
+    "method": "ASSUMPTION-BASED: Initial capacity normalized to 1.0 Ah (not measured); current capacity = SOH voltage proxy \u00d7 initial capacity; SOH proxy from mean voltage; fade assumed 0.05 percentage-points/cycle; EOL threshold assumed 80%. Not validated ground truth.",
+    "is_ground_truth_measured": false,
+    "note": "SOH and RUL targets are assumption-based proxy estimates calculated from voltage behavior and cycling assumptions rather than destructive physical end-of-life teardown."
+  },
+  "feature_names": [
+    "CC",
+    "CH 1/Dis 0",
+    "Type of battry",
+    "C-rate",
+    "Current_Cycle_Number_Input",
+    "Voltage_Min_V",
+    "Voltage_Max_V",
+    "Voltage_Mean_V",
+    "Voltage_Std_V",
+    "Voltage_Range_V",
+    "Voltage_Median_V",
+    "Voltage_Start_V",
+    "Voltage_End_V",
+    "Voltage_Coefficient_of_Variation"
+  ],
+  "feature_count": 14,
+  "feature_details": {
+    "CC": {
+      "label": "Constant Current (CC)",
+      "unit": "A",
+      "type": "numeric",
+      "default": 1.5
+    },
+    "CH 1/Dis 0": {
+      "label": "Charge / Discharge State",
+      "unit": "1=Charge, 0=Discharge",
+      "type": "categorical_binary",
+      "default": 1
+    },
+    "Type of battry": {
+      "label": "Battery Chemistry Type",
+      "unit": "1=LFP, 2=NiCd, 3=NMC",
+      "type": "categorical",
+      "default": 1
+    },
+    "C-rate": {
+      "label": "C-rate",
+      "unit": "C",
+      "type": "numeric",
+      "default": 1.5
+    },
+    "Current_Cycle_Number_Input": {
+      "label": "Current Cycle Number",
+      "unit": "cycles",
+      "type": "numeric",
+      "default": 25
+    },
+    "Voltage_Min_V": {
+      "label": "Voltage Min",
+      "unit": "V",
+      "type": "numeric",
+      "default": 2.65
+    },
+    "Voltage_Max_V": {
+      "label": "Voltage Max",
+      "unit": "V",
+      "type": "numeric",
+      "default": 3.65
+    },
+    "Voltage_Mean_V": {
+      "label": "Voltage Mean",
+      "unit": "V",
+      "type": "numeric",
+      "default": 3.49
+    },
+    "Voltage_Std_V": {
+      "label": "Voltage Standard Deviation",
+      "unit": "V",
+      "type": "numeric",
+      "default": 0.136
+    },
+    "Voltage_Range_V": {
+      "label": "Voltage Range (Max - Min)",
+      "unit": "V",
+      "type": "numeric",
+      "default": 1.0
+    },
+    "Voltage_Median_V": {
+      "label": "Voltage Median",
+      "unit": "V",
+      "type": "numeric",
+      "default": 3.51
+    },
+    "Voltage_Start_V": {
+      "label": "Voltage Start",
+      "unit": "V",
+      "type": "numeric",
+      "default": 2.65
+    },
+    "Voltage_End_V": {
+      "label": "Voltage End",
+      "unit": "V",
+      "type": "numeric",
+      "default": 3.65
+    },
+    "Voltage_Coefficient_of_Variation": {
+      "label": "Voltage Coefficient of Variation (Std / Mean)",
+      "unit": "ratio",
+      "type": "numeric",
+      "default": 0.039
+    }
+  },
+  "target_models": {
+    "soc": {
+      "model_file": "soc_model.joblib",
+      "model_type": "CatBoostRegressor",
+      "target": "SOC_Mean_pct",
+      "unit": "%",
+      "test_mae": 0.4826,
+      "test_rmse": 0.5506,
+      "test_r2": 0.9996
+    },
+    "soh": {
+      "model_file": "soh_model.joblib",
+      "model_type": "CatBoostRegressor",
+      "target": "SOH_Estimated_pct",
+      "unit": "%",
+      "test_mae": 0.1068,
+      "test_rmse": 0.1355,
+      "test_r2": 0.9967
+    },
+    "rul": {
+      "model_file": "rul_model.joblib",
+      "model_type": "CatBoostRegressor",
+      "target": "RUL_Estimated_Cycles",
+      "unit": "cycles",
+      "test_mae": 2.1948,
+      "test_rmse": 2.8242,
+      "test_r2": 0.9964
+    }
+  }
+}
