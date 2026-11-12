@@ -1,6 +1,7 @@
-// Backend candidate endpoints prioritized for IPv4 stability
+// Backend candidate endpoints prioritized for IPv4 stability and production hosting
 const CANDIDATES = [
-  import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000',
+  import.meta.env.VITE_API_URL,
+  'https://batterysense-ai-90tv.onrender.com',
   'http://127.0.0.1:8000',
   'http://localhost:8000'
 ].filter((v, i, a) => v && a.indexOf(v) === i);

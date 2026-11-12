@@ -189,6 +189,22 @@ def prepare_feature_row(features: BatteryFeaturesInput) -> pd.DataFrame:
 
 # ----------------- ENDPOINTS -----------------
 
+@app.get("/", tags=["System"])
+def root():
+    """Root endpoint welcoming visitors and providing API documentation links."""
+    return {
+        "service": "BatterySense AI API",
+        "status": "online",
+        "description": "Intelligent EV Battery Life Prediction (SOC, SOH, RUL) & Smart Charging Optimizer",
+        "documentation": "/docs",
+        "health": "/health",
+        "models_loaded": {
+            "soc": "soc" in loaded_models,
+            "soh": "soh" in loaded_models,
+            "rul": "rul" in loaded_models
+        }
+    }
+
 @app.get("/health", tags=["System"])
 def health_check():
     """Health check endpoint confirming backend status and model readiness."""
