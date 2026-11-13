@@ -362,9 +362,7 @@ export default function LandingPage({
                       <Zap className="w-8 h-8 text-white fill-white drop-shadow-md z-10 animate-pulse" />
                     </div>
                   </div>
-                  <span className="text-[11px] font-semibold text-slate-500 mt-2 font-mono">
-                    {hasRealPrediction ? 'Real-Time Model' : 'Live Status'}
-                  </span>
+
                 </div>
 
                 {/* Right: SOC, SOH, RUL Indicators (Exact Layout from Image) */}
@@ -711,9 +709,7 @@ export default function LandingPage({
                 />
               </div>
             </div>
-            <p className="text-xs text-slate-600 pt-3 border-t border-slate-100">
-              Current available electrical charge relative to total capacity.
-            </p>
+
           </div>
 
           {/* Card 2: SOH */}
@@ -738,9 +734,7 @@ export default function LandingPage({
                 />
               </div>
             </div>
-            <p className="text-xs text-slate-600 pt-3 border-t border-slate-100">
-              Capacity retention compared to factory original specification.
-            </p>
+
           </div>
 
           {/* Card 3: RUL */}
@@ -761,9 +755,7 @@ export default function LandingPage({
                 Estimated ~<strong className="text-slate-800 font-semibold">{Math.round(rulVal * 250).toLocaleString()} km</strong> driving range remaining.
               </div>
             </div>
-            <p className="text-xs text-slate-600 pt-3 border-t border-slate-100">
-              Remaining charge cycles before reaching 80% EOL boundary.
-            </p>
+
           </div>
         </div>
       </section>
@@ -977,15 +969,7 @@ export default function LandingPage({
               </div>
             </div>
 
-            {/* Clear Assumptions */}
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-500 space-y-1">
-              <div className="font-semibold text-slate-700 flex items-center gap-1.5">
-                <Info className="w-3.5 h-3.5 text-[#16a34a]" />
-                <span>Assumptions:</span>
-              </div>
-              <p>&bull; 90.0% grid-to-battery charging conversion efficiency.</p>
-              <p>&bull; Constant-current charging up to 80% with safe current tapering to target.</p>
-            </div>
+
           </div>
         </div>
       </section>

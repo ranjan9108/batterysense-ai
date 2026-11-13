@@ -164,9 +164,7 @@ export default function BatteryPrediction({ onPredictionSuccess, lastPrediction,
                 Battery Health Prediction
               </h1>
             </div>
-            <p className="text-xs text-slate-500 mt-1 max-w-2xl">
-              Enter your EV details to predict your battery's State of Charge (SOC), State of Health (SOH), and Remaining Useful Life (RUL) using our trained CatBoost model.
-            </p>
+
           </div>
 
           <button
@@ -223,9 +221,7 @@ export default function BatteryPrediction({ onPredictionSuccess, lastPrediction,
               <SlidersHorizontal className="w-4 h-4 text-[#16a34a]" />
               <span>EV Battery Information</span>
             </h2>
-            <span className="text-[11px] font-mono text-[#16a34a] font-semibold">
-              Only everyday EV inputs
-            </span>
+
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -384,9 +380,7 @@ export default function BatteryPrediction({ onPredictionSuccess, lastPrediction,
               <Sparkles className="w-4 h-4 text-[#16a34a]" />
               <span>AI Prediction Results</span>
             </h2>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-[#16a34a] font-bold border border-emerald-100">
-              CatBoost ML
-            </span>
+
           </div>
 
           {predictionResult ? (

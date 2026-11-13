@@ -91,9 +91,7 @@ export default function DashboardView({
               BatterySense AI Dashboard
             </h1>
           </div>
-          <p className="text-xs text-slate-500 mt-1 max-w-2xl">
-            Understand Your Battery. Predict Its Life. Charge Smarter. &bull; Real-time AI prediction telemetry and charging cost analytics.
-          </p>
+
         </div>
 
         <div className="flex items-center gap-3">
@@ -115,43 +113,7 @@ export default function DashboardView({
         </div>
       </div>
 
-      {/* Aggregated Health Status Bar */}
-      <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[#16a34a]">
-            <ShieldCheck className="w-7 h-7" />
-          </div>
-          <div>
-            <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">
-              Aggregated Pack Condition
-            </div>
-            <div className="text-lg font-bold text-[#0f244a] flex items-center gap-2">
-              <span>
-                {hasPrediction 
-                  ? (sohVal >= 90 ? 'Optimal Condition' : (sohVal >= 80 ? 'Stable Condition' : 'Degraded (Attention Recommended)'))
-                  : 'Awaiting User Battery Inputs'
-                }
-              </span>
-              <span className={`w-2 h-2 rounded-full ${hasPrediction ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'}`} />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4 text-xs font-mono text-slate-600">
-          <div>
-            <span className="text-slate-400 block text-[10px]">CYCLE STATE</span>
-            <span className="font-bold text-[#0f244a]">
-              {hasPrediction ? `#${cycleCount}` : 'Not Run'}
-            </span>
-          </div>
-          <div className="border-l border-slate-200 pl-4">
-            <span className="text-slate-400 block text-[10px]">AI ENGINE</span>
-            <span className="font-bold text-[#16a34a]">CatBoost ML</span>
-          </div>
-        </div>
-      </div>
-
-      {/* CORE 6 METRICS CARDS */}
+{/* CORE 6 METRICS CARDS */}
       <div>
         <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-1.5">
           <Layers className="w-3.5 h-3.5 text-[#16a34a]" />
@@ -291,9 +253,7 @@ export default function DashboardView({
                     Cycles
                   </span>
                 </div>
-                <div className="text-xs text-slate-500 mt-1">
-                  Lifespan remaining before 80% EOL boundary.
-                </div>
+
               </div>
             ) : (
               <div className="my-4 text-center py-2">
@@ -332,9 +292,7 @@ export default function DashboardView({
                   </span>
                   <span className="text-xs font-bold text-[#16a34a] font-mono">kWh Net</span>
                 </div>
-                <div className="text-xs text-slate-500 mt-1">
-                  Grid input: <strong className="text-slate-800 font-mono">{gridEnergy} kWh</strong> (90% eff.)
-                </div>
+
               </div>
             ) : (
               <div className="my-4 text-center py-2">
@@ -370,9 +328,7 @@ export default function DashboardView({
                 <div className="text-3xl font-black text-[#0f244a] font-mono">
                   {formattedTime}
                 </div>
-                <div className="text-xs text-slate-500 mt-1">
-                  Total duration: <strong className="text-slate-800 font-mono">{totalHours} hrs</strong>
-                </div>
+
               </div>
             ) : (
               <div className="my-4 text-center py-2">
@@ -482,9 +438,7 @@ export default function DashboardView({
                   </h3>
                   <p className="text-[11px] text-slate-500">Estimated SOH % retention over future charge-discharge cycles</p>
                 </div>
-                <span className="text-[10px] font-mono text-[#16a34a] bg-emerald-50 px-2 py-0.5 rounded font-bold">
-                  80% EOL
-                </span>
+
               </div>
 
               <div className="h-60 w-full">

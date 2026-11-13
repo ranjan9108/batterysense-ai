@@ -120,9 +120,7 @@ export default function SmartCharging({ onChargingOptimized, lastChargingResult,
                 Smart Charging Optimizer
               </h1>
             </div>
-            <p className="text-xs text-slate-500 mt-1 max-w-2xl">
-              Calculate exact energy requirements, charging duration, and electricity cost in ₹. Protect battery life with optimized constant-current / constant-voltage stages.
-            </p>
+
           </div>
 
           <button
@@ -350,19 +348,6 @@ export default function SmartCharging({ onChargingOptimized, lastChargingResult,
                 <span className="text-[11px] text-slate-500">
                   (@ ₹{formData.tariff_inr_per_kwh}/kWh)
                 </span>
-              </div>
-
-              {/* Assumptions */}
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-[11px] text-slate-600">
-                <div className="flex items-center gap-1.5 font-bold text-slate-800">
-                  <Info className="w-3.5 h-3.5 text-[#16a34a]" />
-                  <span>Calculation Assumptions:</span>
-                </div>
-                <ul className="space-y-1 list-disc pl-4 text-slate-500">
-                  <li><strong>90.0% Efficiency:</strong> Standard AC-DC conversion and thermal cooling losses.</li>
-                  <li><strong>Flat Tariff:</strong> Flat electricity rate without peak demand penalties.</li>
-                  <li><strong>Preservation Curve:</strong> Full power CC up to 80%, with safe current tapering to target.</li>
-                </ul>
               </div>
 
               <button

@@ -6,7 +6,6 @@ import {
   LayoutDashboard, 
   Menu, 
   X, 
-  RefreshCw,
   ArrowRight
 } from 'lucide-react';
 
@@ -66,23 +65,8 @@ export default function Navbar({ activeTab, setActiveTab, backendStatus, onRefre
             })}
           </nav>
 
-          {/* Right Actions: Status + Professional Get Started Button */}
+          {/* Right Actions: Professional Get Started Button */}
           <div className="hidden sm:flex items-center gap-4">
-            <div 
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] text-slate-600 font-medium cursor-help"
-              title={backendStatus?.online ? "CatBoost AI Backend Online" : "Backend offline / local fallback"}
-            >
-              <span className={`w-2 h-2 rounded-full ${backendStatus?.online ? 'bg-emerald-500' : 'bg-amber-400'}`} />
-              <span className="text-slate-600">AI Online</span>
-              <button 
-                onClick={onRefreshStatus}
-                title="Refresh Status"
-                className="text-slate-400 hover:text-slate-600 transition-colors ml-0.5"
-              >
-                <RefreshCw className="w-2.5 h-2.5" />
-              </button>
-            </div>
-
             <button
               onClick={() => handleNavClick('prediction')}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#16a34a] hover:bg-[#15803d] text-white text-sm font-semibold shadow-sm hover:shadow transition-all group"
